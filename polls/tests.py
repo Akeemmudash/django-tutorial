@@ -57,7 +57,7 @@ class QuestionIndexViewTests(TestCase):
         """
         question = create_question(question_text="Past question.",
                                    days=-30)
-        create_question(question_text="Future question." days=30)
+        create_question(question_text="Future question.", days=30)
         response = self.client.get(reverse("polls:index"))
         self.assertQuerySetEqual(
             response.context["latest_question_list"],
@@ -80,7 +80,7 @@ class QuestionIndexViewTests(TestCase):
         )
 
 
-        
+
 class QuestionModelTests(TestCase):
     def test_was_published_recently_with_future_question(self):
         """
